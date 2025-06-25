@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
     int targetLane;
 
     public float gravity;
-    public float speedZ;
+
+    public float speedZ; //前進方向のスピードの上限値
+    public float accelerationZ; //加速度
+
     public float speedX;
     public float speedJump;
-    public float accelerationZ;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +32,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("left")) MoveToLeft();
-        if (Input.GetKeyDown("right")) MoveToRight();
-        if (Input.GetKeyDown("space")) Jump();
+        if (Input.GetKeyDown(KeyCode.A)) MoveToLeft();
+        if (Input.GetKeyDown(KeyCode.D)) MoveToRight();
+        //if (Input.GetKeyDown("space")) Jump();
 
         //徐々に加速しZ方向に常に前進させる
         float acceleratedZ = moveDirection.z + (accelerationZ * Time.deltaTime);
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
         //移動実行
         Vector3 globalDirection = transform.TransformDirection(moveDirection);
         controller.Move(globalDirection * Time.deltaTime);
+        //controller.Move(moveDirection * Time.deltaTime); //前方向に前進するだけならこれで良し
 
         //移動後接地してたらY方向の速度はリセットする
         if (controller.isGrounded) moveDirection.y = 0;
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
             moveDirection.y = speedJump;
 
             //ジャンプトリガーを設定
-            //animator.SetTrigger("jump");
+             
         }
     }
 
