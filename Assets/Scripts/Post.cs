@@ -44,6 +44,9 @@ public class Post : MonoBehaviour
     void PostComp()
     {
         posted = true;
-        Destroy(gameObject, 1.0f);
+
+        GameController.stagePoints += getPoint; //ステージポイント加算
+
+        Destroy(transform.parent.gameObject, 1.0f);
     }
 }
