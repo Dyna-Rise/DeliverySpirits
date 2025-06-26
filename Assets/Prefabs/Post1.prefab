@@ -5092,6 +5092,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   getPoint: 50
+  pointText: {fileID: 1548875430507019766}
+  pointUI: {fileID: 3843280858161124448}
 --- !u!114 &3843280858161124448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5104,6 +5106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1999b66f958181142911270e8f13dc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiTransform: {fileID: 4277680208517976543}
+  worldTarget: {x: 0, y: 0, z: 0}
+  displayTime: 1
+  floatUPSpeed: 0.5
 --- !u!1 &745667081630435330
 GameObject:
   m_ObjectHideFlags: 0
@@ -5121,7 +5127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4277680208517976543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25029,7 +25035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4320807178278715096
 RectTransform:
   m_ObjectHideFlags: 0

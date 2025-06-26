@@ -34,6 +34,13 @@ public class Shooter : MonoBehaviour
         {
             if (startShoot) Shoot(); //フラグがONならシュートするメソッド
         }
+
+        //生成対象のBoxの切り替え
+        if (Input.GetMouseButtonDown(1))
+        {
+            boxNum++;
+            if (boxPrefabs.Length == boxNum) boxNum = 0;
+        }
     }
 
     void ShootEnabled()
