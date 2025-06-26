@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public enum PostType
@@ -15,6 +16,10 @@ public class Post : MonoBehaviour
     bool posted; //配達済みかどうかフラグ
 
     public int getPoint = 50; //ポイント
+    public TextMeshProUGUI pointText;
+
+    public PointUI pointUI; //ポイントを表示するUIコントローラークラス
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,6 +49,14 @@ public class Post : MonoBehaviour
     void PostComp()
     {
         posted = true;
+
+        //エフェクトそのものの座標より少し上
+        Vector3 showPos = transform.position + (Vector3.up * 1.5f);
+        //表示対象オブジェクトのテキスト内容を設定したスコアと同じになるように
+        pointText.text = "＋" + getPoint.ToString() + "PT";
+
+        //エフェクトそのもの座標より少し上を引数として表示メソッドを発動
+        pointUI.Show(showPos);
 
         GameController.stagePoints += getPoint; //ステージポイント加算
 
