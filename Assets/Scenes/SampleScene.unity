@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageChips:
   - {fileID: 2547888371781019092, guid: 1d491bbbe30449346bdbddce02c55450, type: 3}
+  - {fileID: 2547888371781019092, guid: c6fd5f9f9ee35564c9f8324c4bbdaecd, type: 3}
   startChipIndex: 1
   preInstantiate: 5
   generatedStageList:
@@ -491,6 +492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxPrefabs:
   - {fileID: 8453510803360797428, guid: 730db9c3b228fb64191f1349d750ef45, type: 3}
+  - {fileID: 8453510803360797428, guid: 2b3a79f0c7a1c614ba74e6aabed9f9ed, type: 3}
+  - {fileID: 8453510803360797428, guid: 8f2a4485d9728b5408ca1e27a21167e8, type: 3}
   shootSpeed: 100
   upSpeed: 60
 --- !u!4 &1956163660

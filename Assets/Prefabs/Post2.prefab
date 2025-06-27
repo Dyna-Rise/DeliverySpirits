@@ -5090,8 +5090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4388564018a0143acbb366b396f4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  getPoint: 50
+  type: 1
+  getPoint: 70
   pointText: {fileID: 1548875430507019766}
   pointUI: {fileID: 3843280858161124448}
 --- !u!114 &3843280858161124448
@@ -10513,8 +10513,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.9811321, g: 0.6399999, b: 0, a: 1}
-      maxColor: {r: 0.3962264, g: 0.13845547, b: 0.0018689969, a: 1}
+      minColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+      maxColor: {r: 0.752047, g: 0.9433962, b: 0.91760784, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -15410,8 +15410,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.745283, g: 0.4426957, b: 0, a: 1}
-      maxColor: {r: 0.5660378, g: 0.25182024, b: 0, a: 1}
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.6966447, g: 0.9528302, b: 0.9029195, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -20097,7 +20097,7 @@ GameObject:
   - component: {fileID: 3322305364737978537}
   - component: {fileID: 3663375258458089956}
   m_Layer: 0
-  m_Name: Post1
+  m_Name: Post2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20317,7 +20317,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9433962, g: 0.47153875, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -30111,7 +30111,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0eeb86b0fa588204f9211ed0cd58bccf, type: 2}
+  - {fileID: 2100000, guid: 5486c35b07fdd1e46ab44a901c98656e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
