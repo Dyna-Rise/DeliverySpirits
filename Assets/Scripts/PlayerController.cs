@@ -32,9 +32,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)) MoveToLeft();
-        if (Input.GetKeyDown(KeyCode.D)) MoveToRight();
-        //if (Input.GetKeyDown("space")) Jump();
+        //ゲームステータスがplayingの時のみ左右に動かせる
+        if (GameController.gameState == GameState.playing) { 
+            if (Input.GetKeyDown(KeyCode.A)) MoveToLeft();
+            if (Input.GetKeyDown(KeyCode.D)) MoveToRight();
+            //if (Input.GetKeyDown("space")) Jump();
+        }
 
         //徐々に加速しZ方向に常に前進させる
         float acceleratedZ = moveDirection.z + (accelerationZ * Time.deltaTime);
