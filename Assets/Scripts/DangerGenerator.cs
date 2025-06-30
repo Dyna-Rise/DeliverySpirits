@@ -17,6 +17,8 @@ public class DangerGenerator : MonoBehaviour
     float timer; //時間経過を観測
     float posX; //危険車の出現X座標
 
+    public GameObject dangerPanel; //DangerのUIをコントロールする用
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,5 +53,24 @@ public class DangerGenerator : MonoBehaviour
 
         //プレハブ化した危険車を、ジェネレーターのその時のZの位置に、危険車の向きそのままに生成する
         Instantiate(dangerPrefab,new Vector3(posX,1,transform.position.z), dangerPrefab.transform.rotation);
+        //コルーチンの発動
+        StartCoroutine(AlertText()); //引数でコルーチンを指定
+    }
+
+    //コルーチンの作成
+    IEnumerator AlertText()
+    {
+        float duration = 3.0f; //点滅持続時間
+        float blinkInterval = 0.05f; //点滅間隔
+        float blinkTimer = 0f; //点滅時間の時間経過
+
+        while(blinkTimer < duration)
+        {
+            dangerPanel.SetActive(!dangerPanel.activeSelf); //表示非表示の状態activeSelfを反転させる
+            yield return new WaitForSeconds(blinkInterval); //ウェイト処理
+            blinkTimer += blinkInterval;
+        }
+
+        dangerPanel.SetActive(false); //最後は確実に非表示にして終わる
     }
 }
