@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 5020163326856641301}
   - component: {fileID: 232248686870463461}
   - component: {fileID: 6692239896704382759}
+  - component: {fileID: 9061049437175295919}
   m_Layer: 0
   m_Name: Danger
   m_TagString: Danger
@@ -252,6 +253,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9061049437175295919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777574613741083379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1263256a09087344480f9ce4e833eef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dangerSpeed: 10
 --- !u!1 &7590739141265450988
 GameObject:
   m_ObjectHideFlags: 0

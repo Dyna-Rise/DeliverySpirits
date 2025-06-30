@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    const int MinLane = -2;
-    const int MaxLane = 2;
-    const float LaneWidth = 1.0f;
+    const int MinLane = -1;
+    const int MaxLane = 1;
+    const float LaneWidth = 3.0f;
 
     CharacterController controller;
     //Animator animator;
