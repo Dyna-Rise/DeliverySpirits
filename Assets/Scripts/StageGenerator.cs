@@ -29,6 +29,7 @@ public class StageGenerator : MonoBehaviour
 
     void Update()
     {
+        if(player != null) { 
             // キャラクターの位置から現在のステージチップのインデックスを計算
             int charaPositionIndex = (int)(player.position.z / StageChipSize);
 
@@ -37,6 +38,7 @@ public class StageGenerator : MonoBehaviour
             {
                 UpdateStage(charaPositionIndex + preInstantiate);
             }
+        }
     }
 
     // 指定のIndexまでのステージチップを生成して、管理化に置く
