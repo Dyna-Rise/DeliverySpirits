@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //プレイング状態ならタイムカウントする
+        //プレイ状態ならタイムカウントする
         if(GameController.gameState == GameState.playing)
         {
             //切り上げたdisplayTimeをstringに変換してtextに差し替え

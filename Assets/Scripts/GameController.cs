@@ -13,7 +13,7 @@ public enum GameState
 public class GameController : MonoBehaviour
 {
     public static GameState gameState; //自作したGameState型のstatic変数
-    public static int stagePoints; //ステージの特典
+    public static int stagePoints; //ステージの得点
 
     // Start is called before the first frame update
     void Start()
