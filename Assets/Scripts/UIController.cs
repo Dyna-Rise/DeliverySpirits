@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class UIController : MonoBehaviour
     int currentPoint; //UIが管理しているポイント
     public TextMeshProUGUI pointText;
 
+    //宅配BOXのUI関連
+    public Image boxImage; //対象コンポーネント
+    public Sprite[] boxPics; //BOXの絵
+    int currentBoxNum; //UIが把握している宅配BOX番号
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +29,15 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //右クリックして選択したBOX番号がUIの把握しているBOX番号と違うなら
+        if(currentBoxNum != Shooter.boxNum)
+        {
+            currentBoxNum = Shooter.boxNum; //最新のBOX番号に更新
+            //UIが把握している最新のBOX番号に対応した絵を
+            //対象のImageコンポーネントのspriteに代入
+            boxImage.sprite = boxPics[currentBoxNum];
+        }
+
         //ステージポイントがUIの把握しているポイントと違うなら
         if(currentPoint != GameController.stagePoints)
         {
