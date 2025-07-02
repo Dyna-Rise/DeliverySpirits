@@ -10,6 +10,10 @@ public class UIController : MonoBehaviour
 
     public GameObject gameOverPanel; //ゲームオーバーUIを参照
 
+    //ステージポイント関連
+    int currentPoint; //UIが管理しているポイント
+    public TextMeshProUGUI pointText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,15 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ステージポイントがUIの把握しているポイントと違うなら
+        if(currentPoint != GameController.stagePoints)
+        {
+            //UIの把握しているポイントに最新情報を反映
+            currentPoint = GameController.stagePoints;
+            //int型を文字列型に変換して目的のtext欄に代入
+            pointText.text = currentPoint.ToString();
+        }
+
         //プレイ状態ならタイムカウントする
         if(GameController.gameState == GameState.playing)
         {
