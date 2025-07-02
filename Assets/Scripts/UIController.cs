@@ -20,6 +20,17 @@ public class UIController : MonoBehaviour
     public Sprite[] boxPics; //BOXの絵
     int currentBoxNum; //UIが把握している宅配BOX番号
 
+    public string currentStageName; //ステージ名を入力
+
+    public TextMeshProUGUI thisScoreText; //現在スコアのUI
+    public TextMeshProUGUI HighScoreText; //ハイスコアのUI
+    public TextMeshProUGUI[] boxTexts; //ボックスの個別成績の文字列の配列
+
+    public GameObject resultPanel; //リザルトパネル
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +63,53 @@ public class UIController : MonoBehaviour
         {
             //切り上げたdisplayTimeをstringに変換してtextに差し替え
             timeText.text = Mathf.Ceil(timeCnt.displayTime).ToString();
+            
+            if(timeText.text == "0")
+            {
+                //ゲームステータスをtimeoverに
+                GameController.gameState = GameState.timeover;
+                //過去のハイスコアを取得
+                int highScore = PlayerPrefs.GetInt(currentStageName);
+
+                //もし現在スコアが過去スコアを上回ったら
+                if(GameController.stagePoints > highScore)
+                {
+                    highScore = GameController.stagePoints;
+                    PlayerPrefs.SetInt(currentStageName, highScore);
+                }
+
+                //ThisTimesScoreへの表示
+                thisScoreText.text = "This Time's Score：" + currentPoint.ToString();
+
+                //HighScoreへの表示
+                HighScoreText.text = "Hig Score：" + highScore.ToString();
+
+                //各ボックスの成功率を表示
+                for(int i = 0; i < boxTexts.Length; i++)
+                {
+                    float successRate;
+                    //分母が0だと計算出来ないので成功率は強制0
+                    if (Shooter.shootCounts[i] == 0) successRate = 0;
+                    else
+                    {
+                        //Rateの計算 ※分子・分母両方ともint
+                        //どちらか片方をfloatにキャストしておけば成立
+                        successRate = ((float)Post.successCounts[i] / Shooter.shootCounts[i]) * 100f;
+                    }
+
+                    boxTexts[i].text = "Box" + (i+1) + " " + Post.successCounts[i] + "/" + Shooter.shootCounts[i] + " success rate "+ successRate.ToString("F1") + "%";
+                }
+
+                //リザルトパネルを出す
+                resultPanel.SetActive(true);
+                //カーソルの復活
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
+                //ゲーム状態をendに
+                GameController.gameState = GameState.end;
+            }
+
         }
 
         //ゲームオーバーになったら

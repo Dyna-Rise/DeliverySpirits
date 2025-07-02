@@ -15,6 +15,9 @@ public class Shooter : MonoBehaviour
 
     Camera cam; //カメラ情報の取得
 
+    //各ボックス毎の投擲数
+    public static int[] shootCounts = { 0, 0, 0 };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +74,8 @@ public class Shooter : MonoBehaviour
                     cam.transform.forward.z * shootSpeed
                     ),
                 ForceMode.Impulse);
+
+            shootCounts[boxNum]++;
         }
 
     }

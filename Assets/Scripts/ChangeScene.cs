@@ -13,6 +13,12 @@ public class ChangeScene : MonoBehaviour
         //ポイントのリセットをしておく
         GameController.stagePoints = 0;
 
+        for(int i = 0; i < Post.successCounts.Length; i++)
+        {
+            Post.successCounts[i] = 0;
+            Shooter.shootCounts[i] = 0;
+        }
+
         //シーンの切り替え
         SceneManager.LoadScene(sceneName);
     }
